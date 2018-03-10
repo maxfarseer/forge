@@ -19,5 +19,6 @@
 
 Расписания вебинаров и прочая полезная информация:
 
++ [опрос по времени проведения](https://goo.gl/forms/xkCYSdSOTttjiABr2)
 + [t.me/maxpfrontend](https://t.me/maxpfrontend)
 + [twitter](https://twitter.com/MaxPatsiansky)
