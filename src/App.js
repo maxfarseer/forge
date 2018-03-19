@@ -3,24 +3,25 @@ import Main from './Main'
 import logo from './logo.svg'
 import './App.css'
 
-const IMGS_DATA = {
-  winter: 'https://stardewvalleywiki.com/mediawiki/images/thumb/a/ae/Feast_of_the_Winterstar.png/500px-Feast_of_the_Winterstar.png',
-  spring: 'https://stardewvalleywiki.com/mediawiki/images/thumb/2/20/Egg_Festival.png/500px-Egg_Festival.png',
-  summer: 'https://stardewvalleywiki.com/mediawiki/images/thumb/a/af/Luau.png/500px-Luau.png',
-  autumn: 'https://stardewvalleywiki.com/mediawiki/images/thumb/4/45/StardewValleyFair.png/500px-StardewValleyFair.png',
-}
-
 class App extends Component {
-  state = {
+  /* state = {
     season: 'winter',
-  }
+  } */
   changeSeason = (e) => {
-    this.setState({ 
+    /* this.setState({ 
       season: e.currentTarget.dataset.photoName,
-    })
+    }) */
+    const season = e.currentTarget.dataset.photoName;
+
+    /* window.onpopstate = function (event) {
+      alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
+    };
+
+    window.history.pushState({ page: 1 }, "title 1", "?page=1"); */
+    //window.history.pushState('', '', season);
+    window.location.hash = season
   }
   render() {
-    const { season } = this.state
     return (
       <div className="App">
         <header className="App-header">
@@ -33,7 +34,7 @@ class App extends Component {
           <button data-photo-name='summer' onClick={this.changeSeason}>Лето</button>
           <button data-photo-name='autumn' onClick={this.changeSeason}>Осень</button>
         </div>
-        <Main imgUrl={IMGS_DATA[season]} />
+        <Main />
       </div>
     );
   }

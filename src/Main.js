@@ -1,35 +1,63 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+//import PropTypes from 'prop-types'
+
+const IMGS_DATA = {
+  winter: 'https://stardewvalleywiki.com/mediawiki/images/thumb/a/ae/Feast_of_the_Winterstar.png/500px-Feast_of_the_Winterstar.png',
+  spring: 'https://stardewvalleywiki.com/mediawiki/images/thumb/2/20/Egg_Festival.png/500px-Egg_Festival.png',
+  summer: 'https://stardewvalleywiki.com/mediawiki/images/thumb/a/af/Luau.png/500px-Luau.png',
+  autumn: 'https://stardewvalleywiki.com/mediawiki/images/thumb/4/45/StardewValleyFair.png/500px-StardewValleyFair.png',
+}
+
+
 
 class Main extends React.Component {
+  // какой это урл -> показывать картинку
   state = {
-    isLoading: false,
+    season: 'winter',
+    imgUrl: '', // 
   }
   componentDidMount() {
-    this.loadImage(this.props.imgUrl)
-  }
-  componentWillReceiveProps(nextProps) {
-    this.loadImage(nextProps.imgUrl)
-  }
-  loadImage = (src) => {
-    this.setState({ isLoading: true })
+    //this.loadImage(this.props.imgUrl)
+    /* window.onpopstate = function (event) {
+      alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
+    }; */
+
+    window.onhashchange = (event) => {
+      const newSeason = event.newURL.slice(event.newURL.indexOf('#') + 1)
+      this.setState({
+        imgUrl: '',
+        season: newSeason,
+      }, () => {
+        this.loadImage(this.state.season)
+      })
+    }
     
+    const season = window.location.hash.slice(1)
+    this.setState({
+      season,
+    }, () => {
+      this.loadImage(this.state.season)  
+    }) 
+  }
+  /* componentWillReceiveProps(nextProps) {
+    this.loadImage(nextProps.imgUrl)
+  }*/
+  loadImage = (src) => {
     let img = new Image()
     img.onload = () => {
-      this.setState({ isLoading: false })
+      this.setState({ imgUrl: IMGS_DATA[this.state.season] })
     }
-
-    img.src = src
+    
+    img.src = IMGS_DATA[this.state.season]
   }
   render() {
-    const { imgUrl } = this.props
-    const { isLoading } = this.state
+    const { imgUrl } = this.state
     return (
       <div>
         {
-          isLoading ?
-          <p>Загружаю...</p> :
-          <img src={imgUrl} alt='season' />
+          imgUrl.length ?
+          <img src={imgUrl} alt='season' /> :
+          <p>Загружаю...</p>
         }
       </div>
     )
@@ -37,7 +65,7 @@ class Main extends React.Component {
 }
 
 Main.propType = {
-  imgUrl: PropTypes.string.isRequired,
+  
 }
 
 export default Main
