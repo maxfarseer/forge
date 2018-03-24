@@ -17,11 +17,6 @@ class Main extends React.Component {
     imgUrl: '', // 
   }
   componentDidMount() {
-    //this.loadImage(this.props.imgUrl)
-    /* window.onpopstate = function (event) {
-      alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
-    }; */
-
     window.onhashchange = (event) => {
       const newSeason = event.newURL.slice(event.newURL.indexOf('#') + 1)
       this.setState({
@@ -39,9 +34,6 @@ class Main extends React.Component {
       this.loadImage(this.state.season)  
     }) 
   }
-  /* componentWillReceiveProps(nextProps) {
-    this.loadImage(nextProps.imgUrl)
-  }*/
   loadImage = (src) => {
     let img = new Image()
     img.onload = () => {

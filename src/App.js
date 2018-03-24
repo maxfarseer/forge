@@ -4,21 +4,8 @@ import logo from './logo.svg'
 import './App.css'
 
 class App extends Component {
-  /* state = {
-    season: 'winter',
-  } */
   changeSeason = (e) => {
-    /* this.setState({ 
-      season: e.currentTarget.dataset.photoName,
-    }) */
     const season = e.currentTarget.dataset.photoName;
-
-    /* window.onpopstate = function (event) {
-      alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
-    };
-
-    window.history.pushState({ page: 1 }, "title 1", "?page=1"); */
-    //window.history.pushState('', '', season);
     window.location.hash = season
   }
   render() {
@@ -26,7 +13,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Stardew valley: времена года</h1>
+          <h1 className="App-title">Stardew valley: сезоны + hash роутер</h1>
         </header>
         <div className='buttons'>
           <button data-photo-name='winter' onClick={this.changeSeason}>Зима</button>

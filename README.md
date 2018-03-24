@@ -1,24 +1,21 @@
-## Кузница проекта "Без воды". День #1
+## Кузница проекта "Без воды". День #1+
 
-Сделать приложение, которое умеет показывать прелоадер и изображение, когда оно загрузится. Переключение изображений происходит по кнопке.
+Развитие идеи приложения сделанного [в первый день](https://github.com/maxfarseer/forge/tree/1-stardew-seasons), но на этот раз добавился простой роутинг с помощью hash (символа решетки)
 
-![видео задачи](https://j.gifs.com/APoW1B.gif)
-
-[если сломалась gif-анимация](https://www.youtube.com/watch?v=zxpp8IwqsOo)
+![видео задачи](https://j.gifs.com/ZVDN2Q.gif)
 
 ## Что будет на занятии:
 
-+ create-react-app
 + создание компонентов
 + работа с props (свойства)
 + работа с state (состояние)
 + метод жизненого цикла (lifecycle method) componentDidMount
 + работа с нативным элементом `img`
++ работа с нативными элементами,чтобы создать роутинг (location, window)
 
 ---
 
 Расписания вебинаров и прочая полезная информация:
-
-+ [опрос по времени проведения](https://goo.gl/forms/xkCYSdSOTttjiABr2)
 + [t.me/maxpfrontend](https://t.me/maxpfrontend)
++ [vk/maxpfrontend](http://vk.com/maxpfrontend)
 + [twitter](https://twitter.com/MaxPatsiansky)
