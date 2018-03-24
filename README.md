@@ -2,7 +2,7 @@
 
 Развитие идеи приложения сделанного [в первый день](https://github.com/maxfarseer/forge/tree/1-stardew-seasons), но на этот раз добавился простой роутинг с помощью hash (символа решетки)
 
-![видео задачи](https://j.gifs.com/ZVDN2Q.gif)
+![как выглядит задание 1+](https://j.gifs.com/ZVDN2Q.gif)
 
 ## Что будет на занятии:
 
