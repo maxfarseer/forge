@@ -4,6 +4,12 @@ import logo from './logo.svg'
 import './App.css'
 
 class App extends Component {
+  componentDidMount () {
+    if (!window.location.hash) {
+      window.location.hash = 'winter'
+    }
+  }
+  
   changeSeason = (e) => {
     const season = e.currentTarget.dataset.photoName;
     window.location.hash = season
