@@ -1,30 +1,30 @@
 import React from 'react'
-import { Route, Link } from './components/Router'
+import { Route } from './components/Router'
+import LinkBtn from './components/LinkBtn'
+import Home from './components/Home'
 import Epic from './components/Epic'
 import './App.css'
-
-const Home = () => <h2>Home</h2>
+import CssBaseline from 'material-ui/CssBaseline'
 
 const App = () => (
-  <div>
-    <ul>
-      <li>
-        <Link to="/">Главная</Link>
-      </li>
-      <li>
-        <Link to="/epic">Эпопея</Link>
-      </li>
-      <li>
-        <Link to="/about">О приложении</Link>
-      </li>
-    </ul>
+  <CssBaseline>
+    <div>
+      <header className="header">
+        <div className="top-menu">
+          <LinkBtn to="/" label={'Главная'} />
+          <LinkBtn to="/epic" label={'Эпопея'} />
+          <LinkBtn to="/about" label={'О приложении'} />
+        </div>
+      </header>
 
-    <hr />
-
-    <Route exact path="/" component={Home} />
-    <Route path="/epic" component={Epic} />
-    <Route path="/about" render={() => <p>Сделано на Кузнице #2</p>} />
-  </div>
+      <hr />
+      <div className="content">
+        <Route exact path="/" component={Home} />
+        <Route path="/epic" component={Epic} />
+        <Route path="/about" render={() => <p>Сделано на Кузнице #2</p>} />
+      </div>
+    </div>
+  </CssBaseline>
 )
 
 export default App
