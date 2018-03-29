@@ -15,7 +15,6 @@ const matchPath = (pathname, options) => {
   const match = new RegExp(`^${path}`).exec(pathname)
 
   if (!match) {
-    // There wasn't a match.
     return null
   }
 
@@ -23,10 +22,6 @@ const matchPath = (pathname, options) => {
   const isExact = pathname === url
 
   if (exact && !isExact) {
-    // There was a match, but it wasn't
-    // an exact match as specified by
-    // the exact prop.
-
     return null
   }
 
