@@ -1,4 +1,5 @@
 import React from 'react'
+import Replay from 'material-ui-icons/Replay'
 import BookInfo from './BookInfo'
 import { httpGet } from '../helpers/network'
 
@@ -6,18 +7,33 @@ class Book extends React.Component {
   state = {
     data: [],
     isLoading: false,
+    error: false,
   }
   componentDidMount() {
+    this.loadData()
+  }
+  loadData = () => {
     const epicName = this.props.match.path.split('/')[2]
-    this.setState({ isLoading: true })
+    this.setState({ isLoading: true, error: false })
 
-    httpGet(epicName).then(json =>
-      this.setState({ data: json.books, isLoading: false })
-    )
+    httpGet(epicName)
+      .then(json => this.setState({ data: json.books, isLoading: false }))
+      .catch(e => this.setState({ isLoading: false, error: true }))
   }
 
   renderTemplate = () => {
-    const { isLoading, data } = this.state
+    const { error, isLoading, data } = this.state
+
+    if (error) {
+      return (
+        <React.Fragment>
+          <p>
+            Во время загрузки данных произошла ошибка{' '}
+            <Replay style={{ cursor: 'pointer' }} onClick={this.loadData} />
+          </p>
+        </React.Fragment>
+      )
+    }
 
     if (isLoading) {
       return <p>Загружаю...</p>
