@@ -26,12 +26,10 @@ class Book extends React.Component {
 
     if (error) {
       return (
-        <React.Fragment>
-          <p>
-            Во время загрузки данных произошла ошибка{' '}
-            <Replay style={{ cursor: 'pointer' }} onClick={this.loadData} />
-          </p>
-        </React.Fragment>
+        <p>
+          Во время загрузки данных произошла ошибка{' '}
+          <Replay style={{ cursor: 'pointer' }} onClick={this.loadData} />
+        </p>
       )
     }
 
