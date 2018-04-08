@@ -1,8 +1,9 @@
 import React from 'react'
-import { Route } from './components/Router'
+import { BrowserRouter, Route } from 'react-router-dom'
 import LinkBtn from './components/LinkBtn'
 import Home from './components/Home'
-import Epic from './components/Epic'
+import ReactModal from './components/ReactModal'
+import ReactSelect from './components/ReactSelect'
 import './App.css'
 import CssBaseline from 'material-ui/CssBaseline'
 
@@ -12,19 +13,27 @@ const App = () => (
       <header className="header">
         <div className="top-menu">
           <LinkBtn to="/" label={'Главная'} />
-          <LinkBtn to="/epic" label={'Эпопея'} />
-          <LinkBtn to="/about" label={'О приложении'} />
+          <LinkBtn to="/react-modal" label={'React-Modal'} />
+          <LinkBtn to="/react-select" label={'React-Select'} />
         </div>
       </header>
 
       <hr />
       <div className="content">
         <Route exact path="/" component={Home} />
-        <Route path="/epic" component={Epic} />
-        <Route path="/about" render={() => <p>Сделано на Кузнице #2</p>} />
+        <Route path="/react-modal" component={ReactModal} />
+        <Route path="/react-select" component={ReactSelect} />
       </div>
     </div>
   </CssBaseline>
 )
 
-export default App
+const AppWithRouter = () => {
+  return (
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  )
+}
+
+export default AppWithRouter
