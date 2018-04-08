@@ -13,7 +13,6 @@ class ReactSelect extends React.Component {
     value: [],
   }
   handleChange = value => {
-    // на бэкэнд отправляй только value
     this.setState({ value })
   }
   render() {
